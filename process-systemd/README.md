@@ -58,8 +58,9 @@ This lab introduces process management in Linux, including monitoring, controlli
 
 4. **Suspend and resume a process**  
    ```bash
-   Ctrl+Z  # Suspend foreground process
-   bg      # Resume process in the background
+   Ctrl+Z  # Suspend foreground process (sleep 100 that is running from the previous step)
+   bg      # Resume process in the background (will resume the sleep 100 in the background)
+   jobs    # Should tell you that the process "sleep 100 is Running"
    ```
 
 ---
@@ -67,22 +68,16 @@ This lab introduces process management in Linux, including monitoring, controlli
 ### **Step 3: Killing Processes**
 1. **Find a process ID (PID) by name**  
    ```bash
-   pgrep sleep
+   pgrep sleep    # If it tells you that the sleep process is Done re-run it again and continue this step using: sleep 100
    ```
 
 2. **Terminate a process**  
    ```bash
-   kill <PID>
+   kill <PID>  # The PID that you got from the pgrep command
    ```
    - Sends a SIGTERM signal to gracefully stop the process.
 
-3. **Forcefully kill a process**  
-   ```bash
-   kill -9 <PID>
-   ```
-   - Sends a SIGKILL signal to forcefully stop the process.
-
-4. **Kill all processes of a specific name**  
+3. **To kill all processes of a specific name. Just for reference, don't execute!!!**  
    ```bash
    pkill -f sleep
    ```
@@ -92,31 +87,35 @@ This lab introduces process management in Linux, including monitoring, controlli
 ### **Step 4: Managing Services with systemd**
 1. **Check the status of a service**  
    ```bash
-   systemctl status sshd
+   systemctl status cron
    ```
-   - Displays the status of the SSH daemon.
+   - Displays the status of the cron daemon.
 
 2. **Start and stop a service**  
    ```bash
-   sudo systemctl start sshd
-   sudo systemctl stop sshd
+   sudo systemctl stop cron
+   systemctl status cron # check that the service has shutdown
+   sudo systemctl start cron
+   systemctl status cron # check that the service has started again
    ```
 
 3. **Restart and reload a service**  
    ```bash
-   sudo systemctl restart sshd
-   sudo systemctl reload sshd
+   sudo systemctl restart cron
+   sudo systemctl reload cron
    ```
 
 4. **Enable and disable a service at boot**  
    ```bash
-   sudo systemctl enable sshd
-   sudo systemctl disable sshd
+   sudo systemctl disable cron
+   systemctl status cron # observe the "disabled" keyword
+   sudo systemctl enable cron
+   systemctl status cron # verify that is it enabled again
    ```
 
 5. **View logs of a service**  
    ```bash
-   journalctl -u sshd --no-pager
+   journalctl -u cron --no-pager
    ```
 
 ---
