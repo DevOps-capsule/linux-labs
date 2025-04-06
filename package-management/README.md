@@ -71,15 +71,14 @@ This lab provides hands-on experience with package management in Linux using `ap
 
 ---
 
-### **Step 6: Cleaning Up Package Cache**
-1. **Clean package cache (Debian-based)**  
+### **Step 6: Remove all unused dependencies**
+1. **Debian-based**  
    ```bash
-   sudo apt autoclean
-   sudo apt autoremove -y
+   sudo apt autoremove
    ```
-2. **Clean package cache (RHEL-based)**  
+2. **RHEL-based**  
    ```bash
-   sudo yum clean all
+   sudo yum autoremove
    ```
 
 ---
