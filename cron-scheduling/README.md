@@ -89,7 +89,7 @@ Examples:
    - Add the following content:
      ```bash
      #!/bin/bash
-     echo "System Uptime: $(uptime)" >> /tmp/uptime.log
+     echo "System Uptime: $(uptime)" >> ~/uptime.log
      ```
 2. **Make the script executable**  
    ```bash
@@ -104,6 +104,13 @@ Examples:
      0 * * * * ~/uptime_logger.sh
      ```
 
+---
+
+### **Step 6: Clean up**
+1. **Remove all cron jobs of your user**  
+   ```bash
+   crontab -r
+   ```
 ---
 
 ### **Lab Summary**
