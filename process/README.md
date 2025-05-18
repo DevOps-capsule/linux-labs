@@ -2,7 +2,7 @@
 ### **Hands-On Lab: Process Management and systemd in Linux**
 
 #### **Objective**  
-This lab introduces process management in Linux, including monitoring, controlling, and managing processes with `ps`, `top`, `kill`, and `systemd`.
+This lab introduces process management in Linux, including monitoring, controlling, and managing processes with `ps`, `top` and `kill`.
 
 #### **Prerequisites**  
 - A Linux system (Ubuntu, CentOS, or any other distribution)  
@@ -81,55 +81,15 @@ This lab introduces process management in Linux, including monitoring, controlli
    ```bash
    pkill -f sleep
    ```
-
----
-
-### **Step 4: Managing Services with systemd**
-1. **Check the status of a service**  
-   ```bash
-   systemctl status cron
-   ```
-   - Displays the status of the cron daemon.
-
-2. **Start and stop a service**  
-   ```bash
-   sudo systemctl stop cron
-   systemctl status cron # check that the service has shutdown
-   sudo systemctl start cron
-   systemctl status cron # check that the service has started again
-   ```
-
-3. **Restart and reload a service**  
-   ```bash
-   sudo systemctl restart cron
-   sudo systemctl reload cron
-   ```
-
-4. **Enable and disable a service at boot**  
-   ```bash
-   sudo systemctl disable cron
-   systemctl status cron # observe the "disabled" keyword
-   sudo systemctl enable cron
-   systemctl status cron # verify that is it enabled again
-   ```
-
-5. **View logs of a service**  
-   ```bash
-   journalctl -u cron --no-pager
-   ```
-
 ---
 
 ### **Lab Summary**
 In this lab, you learned how to:  
 ✅ Monitor and manage processes with `ps`, `top`, and `htop`.  
 ✅ Start, stop, and kill processes using `kill` and `pkill`.  
-✅ Manage system services using `systemctl`.  
 
 ---
 
 ### **Bonus Challenge**
 Try the following extra tasks:  
 🔹 Modify the priority of a process using `nice` and `renice`.  
-
-Would you like any modifications or additional exercises? 😊
