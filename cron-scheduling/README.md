@@ -43,7 +43,7 @@ This lab introduces cron jobs in Linux, helping you understand how to schedule t
    - This appends "Cron Job Test" to the cron_test.log file in your home directory `~/cron_test.log` every minute.
 3. **Save and exit the editor**  
    - For nano, press `CTRL+X`, then `Y`, then `ENTER`.  
-4. open new terminal and run `watch -d ~/cron_test.log` and wait to see the contents of the file get updated every minute
+4. open new terminal and run `watch -d cat ~/cron_test.log` and wait to see the contents of the file get updated every minute
 
 ---
 
