@@ -39,7 +39,7 @@ Learn to use input/output redirection, piping, and work with text editors (vim a
 
 5. Use input redirection with a command:
    ```bash
-   wc -l < sample.txt
+   wc -l < sample.txt   # prints the number of lines in the file
    ```
 
 ---
